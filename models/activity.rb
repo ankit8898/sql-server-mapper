@@ -1,3 +1,5 @@
+require 'base64'
+
 class Activity < ActiveRecord::Base
 
 
@@ -7,10 +9,22 @@ class Activity < ActiveRecord::Base
 		end
 	end
 
-	def extract
-		puts "Hoooo"
+	def self.extract_files
+		puts Activity.count
+		all.each do |activity|
+			activity.extract
+			puts "Done"
+		end
 	end
 
+	def extract
+	  name = ["A","B","C","D"].sample
+	  File.open("#{name}.html", 'w+') do  |file|
+	  	puts body
+	  	file.write body
+	  end
+
+	end
 
 	def self.some_html
 		"<!DOCTYPE html>

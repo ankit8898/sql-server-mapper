@@ -4,16 +4,16 @@ require 'active_record'
 
 
 #lib
-
 require_relative 'lib/sql_server_mapper'
 
-SqlServerMapper.connect!
-
+#models
 require_relative 'models/activity'
 
 task default: %w[extract_files]
 
 
 task :extract_files do
-  Activity.add_mock_data
+  Activity.extract_files
 end
+
+SqlServerMapper.connect!
