@@ -11,6 +11,8 @@ class Activity < ActiveRecord::Base
 
 	def self.extract_files
 		puts Activity.count
+		a =  FileUtils.mkdir_p 'Foo'
+
 		all.each do |activity|
 			activity.extract
 			puts "Done"
@@ -18,11 +20,12 @@ class Activity < ActiveRecord::Base
 	end
 
 	def extract
-	  name = ["A","B","C","D"].sample
-	  File.open("#{name}.html", 'w+') do  |file|
-	  	puts body
-	  	file.write body
-	  end
+		name = ["A","B","C","D"].sample
+
+		File.open("Foo/#{name}.html", 'w+') do  |file|
+			puts body
+			file.write body
+		end
 
 	end
 
