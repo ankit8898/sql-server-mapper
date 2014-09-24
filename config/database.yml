@@ -1,0 +1,5 @@
+development:
+  adapter: 'sqlserver'
+  host: 'localhost'
+  database: 'mapper'
+  mode: 'dblib'
