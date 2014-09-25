@@ -12,7 +12,9 @@ task default: %w[extract_files]
 
 
 task :extract_files do
-  Activity.extract_files
+  #Activity.extract_files
+  #Activity.add_mock_data
+  Activity.extract_with_group
 end
 
 SqlServerMapper.connect!
