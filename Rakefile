@@ -1,13 +1,10 @@
 require 'rubygems'
 require 'bundler/setup'
 require 'active_record'
+require 'require_all'
 
-
-#lib
-require_relative 'lib/sql_server_mapper'
-
-#models
-require_relative 'models/activity'
+require_all 'models'
+require_all 'lib'
 
 task default: %w[extract_files]
 
