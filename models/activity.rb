@@ -2,7 +2,7 @@ require 'base64'
 
 class Activity < ActiveRecord::Base
 
-	scope :grouped_by_activity, -> {all.group_by(&:activity_number)}
+	#scope :grouped_by_activity, -> {all.group_by(&:activity_number)}
 
 	def self.add_mock_data 
 		10.times do 
@@ -13,7 +13,7 @@ class Activity < ActiveRecord::Base
 	def self.extract_files
 		puts Activity.count
 		a =  FileUtils.mkdir_p 'Foo'
-		grouped = grouped_by_activity
+		#grouped = grouped_by_activity
 		all.each do |activity|
 			activity.extract
 			puts "Done"
